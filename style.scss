@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+@font-face {
+ font-family: "wild_worldbold";
+ src: url("https://assets.codepen.io/756881/wild_world-webfont.woff2") format("woff2"),
+ url("https://assets.codepen.io/756881/wild_world-webfont.woff") format("woff");
+ font-weight: normal;
+ font-style: normal;
+}
+
+// :root * {
+//   /* Pause the animation */
+//   animation-play-state: paused;
+//   /* Bind the animation to scroll */
+//   animation-delay: calc(var(--scroll) * -1s);
+//   /* These last 2 properites clean up overshoot weirdness */
+//   animation-iteration-count: 1;
+//   animation-fill-mode: both;
+// }
+
+// :root {
+//   --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  
+//  }
+
+
+// :root {
+//   --f-0-min: 18;
+//   --f-0-max: 20;
+//   --step-0: calc(
+//    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+//     var(--fluid-bp)
+//   );
+ 
+//   --f-1-min: 20;
+//   --f-1-max: 24;
+//   --step-1: calc(
+//    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+//     var(--fluid-bp)
+//   );
+//  }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color: rgb(17 24 39);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+p {
+ margin: 0;
+}
+
+
+//Humbuger
+.line {
+  fill: none;
+  stroke: #fbfbfb;
+  stroke-width: 7;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+  stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 7;
+}
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 7;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 7;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 7;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 7;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 7;
+}
+// end Humbuger
+
+//Font Style
+.wild-world-bold{
+  font-family: "wild_worldbold";
+}
+.bebas-font-400{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-sans-400{
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+//Font Style End
+
+.section-start{
+
+    .cube-box {
+      position: relative;
+
+      .cube-wrap {
+        --size: 30vmin;
+        position: absolute;
+        top: -60%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        perspective: 100vmin;
+        cursor: pointer;
+      
+        .cube {
+          transform-style: preserve-3d;
+          transform: rotateX(0deg) rotateZ(45deg) rotateY(-45deg);
+          animation: cube 1s linear;
+        }
+
+        @keyframes cube {
+          to {
+            transform: rotateX(360deg) rotateZ(45deg) rotateY(-45deg);
+          }
+        }
+        
+        .side {
+          position: absolute;
+          width: var(--size);
+          height: var(--size);
+          background-color: #eee;
+          backface-visibility: visible;
+          top: calc(var(--size) * -.5);
+          left: calc(var(--size) * -.5);
+        }
+        .top {
+          background-color: #fff;
+          transform: rotateX(90deg) translateZ(calc(var(--size) * .5));
+        }
+        .bottom {
+          background-color: #999;
+          transform: rotateX(90deg) translateZ(calc(var(--size) * -.5));
+        }
+        .left {
+          background-color: #ccc;
+          transform: rotateY(90deg) translateZ(calc(var(--size) * .5));
+        }
+        .right {
+          background-color: #ddd;
+          transform: rotateY(90deg) translateZ(calc(var(--size) * -.5));
+        }
+        .front {
+          background-color: #aaa;
+          transform: translateZ(calc(var(--size) * .5));
+        }
+        .back {
+          background-color: #bbb;
+          transform: translateZ(calc(var(--size) * -.5));
+        }
+      }
+
+    }
+
+    .text-container {
+      position: relative;
+    }
+    .text-container p{
+      font-size: clamp(13px, 8vw, 104px);
+      line-height: 1.5;
+      letter-spacing: 1px;
+      font-family: "wild_worldbold";
+      text-align: center;
+      color: #fff;
+      -webkit-text-stroke-width: .5px;
+      -webkit-text-stroke-color: white;
+      z-index: -10;
+    }
+}
+
+
+@keyframes fadeInOpacity {
+  0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 790px) {
+
+  .text-s{
+    font-size: 10px;
+  }
+  .site-nav-scroll{
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+   
+  }
+
+  .section-start{
+
+    .cube-wrap{
+      top:-100% !important;
+    }
+    .text-container {
+      position: relative;
+    }
+   .text-container p{
+     font-size: clamp(10px, 6.1vw, 50px);
+     line-height: 1;
+     letter-spacing: 1px;
+     
+   }
+ 
+ 
+ }
+}
