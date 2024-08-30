@@ -35,6 +35,9 @@ function raf(time) {
   requestAnimationFrame(raf);
 }
 
+if(window.matchMedia("(max-width: 700px)")){
+  requestAnimationFrame(raf);
+}
 requestAnimationFrame(raf);
 
 
